@@ -1,13 +1,25 @@
 package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.UserEnum;
+import jakarta.persistence.*;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
+@Entity
+@Table(name="user_table")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_user")
     private Integer id;
+    @Column(name = "user_name",length = 100,nullable = false)
     private String name;
+    @Column(name = "user_email",length = 150, unique = true, nullable = false)
     private String email;
+    @Column(name = "user_password",length = 250,nullable = false)
     private  String password;
+    @Column(name = "user_phone",length = 20,nullable = false)
     private String numberPhone;
+    @Column(name = "user_type",nullable = false)
     private UserEnum userType;
 
     //Methods
