@@ -1,10 +1,19 @@
 package com.example.pedidosAPPTuya.models;
 
-public class Item {
-    private Integer itemId;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name="item_table")
+public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "item_id")
+    private Integer itemId;
+    @Column(name = "item_name",length = 100,nullable = false)
     private String itemName;
+    @Column(name = "item_price",nullable = false)
     private Double itemPrice;
+    @Column(name = "item_description",length =400,nullable = false)
     private String itemDescription;
 
     public Item() {

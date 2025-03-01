@@ -2,14 +2,22 @@ package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnum;
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnumStatus;
+import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
-
+@Entity
+@Table(name = "payment_table")
 public class Payment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "payment_id")
     private Integer paymentId;
+    @Column(name = "payment_method",nullable = false)
     private PaymentEnum paymentMethod;
+    @Column(name = "payment_status",nullable = false)
     private PaymentEnumStatus paymenStatus;
+    @Column(name = "payment_date",nullable = false)
     private LocalDate paymenDate;
 
     public Payment() {

@@ -1,10 +1,22 @@
 package com.example.pedidosAPPTuya.models;
 
+import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
+
+@Entity
+@Table(name = "store_table")
 public class Store {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "store_id")
     private Integer storeId;
+    @Column(name = "store_name", length = 100, nullable = false)
     private String storeName;
+    @Column(name = "store_address", length = 255, nullable = false)
     private String storeAddres;
+    @Column(name = "store_phone_number", length = 20, nullable = false)
     private String storePhoneNumber;
+    @Column(name = "store_category", length = 50, nullable = false)
     private String storeCategory;
 
     public Store() {
