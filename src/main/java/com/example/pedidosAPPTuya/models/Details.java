@@ -1,10 +1,17 @@
 package com.example.pedidosAPPTuya.models;
 
+import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
-
+@Entity
+@Table(name = "details_table")
 public class Details {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "details_id")
     private Integer detailsId;
+    @Column(name = "amount_item", nullable = false)
     private Integer amountItem;
+    @Column(name = "sub_total_item", nullable = false)
     private Double subTotalItem;
 
     public Details() {

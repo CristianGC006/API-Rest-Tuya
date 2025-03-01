@@ -1,12 +1,21 @@
 package com.example.pedidosAPPTuya.models;
 
+import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
-
+@Entity
+@Table(name="dealer_table")
 public class Dealer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "dealer_id")
     private Integer dealerId;
+    @Column(name = "dealer_name",length = 100,nullable = false)
     private String dealerName;
+    @Column(name = "dealer_phone_number",length = 20,nullable = false)
     private String dealerPhoneNumber;
+    @Column(name = "dealer_email",length = 150,nullable = false)
     private String dealerEmail;
+    @Column(name = "dealer_vehicle",length = 50,nullable = false)
     private String dealerVehicle;
 
 

@@ -1,17 +1,26 @@
 package com.example.pedidosAPPTuya.models;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name="address_table")
+
 public class Address {
-    private LocalDate paymentDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_address")
     private Integer addressId;
-
+    @Column(name = "payment_date",nullable = false)
+    private LocalDate paymentDate;
+    @Column(name="address_street",length = 255,nullable = false)
     private String addresStreet;
-
+    @Column(name="address_city",length = 100,nullable = false)
     private String addressCity;
-
+    @Column(name="address_postal_code",length = 20,nullable = false)
     private String addressPostalCode;
-
+    @Column(name="address_country",length = 50,nullable = false)
     private String addressCountry;
 
     public Address() {
