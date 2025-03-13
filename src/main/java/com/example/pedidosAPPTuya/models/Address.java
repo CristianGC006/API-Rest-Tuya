@@ -1,5 +1,6 @@
 package com.example.pedidosAPPTuya.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -22,6 +23,12 @@ public class Address {
     private String addressPostalCode;
     @Column(name="address_country",length = 50,nullable = false)
     private String addressCountry;
+
+    @ManyToOne
+    @JoinColumn(name="fk_user", referencedColumnName = "id_user")
+    @JsonBackReference
+    private User user;
+
 
     public Address() {
     }
