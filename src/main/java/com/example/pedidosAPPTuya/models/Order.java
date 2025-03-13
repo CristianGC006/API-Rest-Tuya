@@ -1,6 +1,7 @@
 package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.StatusOrder;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.websocket.ClientEndpoint;
 
@@ -19,6 +20,11 @@ public class Order {
     private LocalDate orderDate;
     @Column(name = "total_order",nullable = false)
     private Double totalOrder;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_user", referencedColumnName = "id_user")
+    @JsonBackReference
+    private User user;
 
     public Order() {
     }
