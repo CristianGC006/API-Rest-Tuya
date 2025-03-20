@@ -2,6 +2,7 @@ package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.StatusOrder;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.websocket.ClientEndpoint;
 
@@ -25,6 +26,21 @@ public class Order {
     @JoinColumn(name = "fk_user", referencedColumnName = "id_user")
     @JsonBackReference
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_order", referencedColumnName = "order_id")
+    @JsonBackReference
+    private Payment payment;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_shop", referencedColumnName = "store_id")
+    @JsonBackReference
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_details", referencedColumnName = "details_id")
+    @JsonBackReference
+    private Details details;
 
     public Order() {
     }

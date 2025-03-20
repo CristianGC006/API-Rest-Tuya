@@ -1,7 +1,12 @@
 package com.example.pedidosAPPTuya.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.transaction.Transactional;
+import org.w3c.dom.stylesheets.LinkStyle;
+
+import java.util.List;
 
 @Entity
 @Table(name = "store_table")
@@ -18,6 +23,14 @@ public class Store {
     private String storePhoneNumber;
     @Column(name = "store_category", length = 50, nullable = false)
     private String storeCategory;
+
+    @OneToMany(mappedBy = "store")
+    @JsonBackReference
+    private List<Order> orders;
+
+    @OneToMany(mappedBy = "store")
+    @JsonManagedReference
+    private List<Item> items;
 
     public Store() {
     }
