@@ -4,12 +4,11 @@ import com.example.pedidosAPPTuya.Helpers.Enums.UserEnum;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;
-
 import java.util.List;
 
 @Entity
 @Table(name="user_table")
-public class User {
+public class  User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
