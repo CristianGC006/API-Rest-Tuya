@@ -1,7 +1,11 @@
 package com.example.pedidosAPPTuya.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.persistence.criteria.CriteriaBuilder;
+
+import java.util.List;
+
 @Entity
 @Table(name = "details_table")
 public class Details {
@@ -13,6 +17,14 @@ public class Details {
     private Integer amountItem;
     @Column(name = "sub_total_item", nullable = false)
     private Double subTotalItem;
+
+    @OneToMany(mappedBy = "details")
+    @JsonManagedReference
+    private List<Order> orders;
+
+    @OneToMany(mappedBy = "details")
+    @JsonManagedReference
+    private List<Item>items;
 
     public Details() {
     }

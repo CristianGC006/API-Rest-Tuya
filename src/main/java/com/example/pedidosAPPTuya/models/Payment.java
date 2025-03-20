@@ -2,10 +2,13 @@ package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnum;
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnumStatus;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Table(name = "payment_table")
 public class Payment {
@@ -19,6 +22,10 @@ public class Payment {
     private PaymentEnumStatus paymenStatus;
     @Column(name = "payment_date",nullable = false)
     private LocalDate paymenDate;
+
+    @OneToMany(mappedBy = "payment")
+    @JsonManagedReference
+    private List<Order> orders;
 
     public Payment() {
     }
