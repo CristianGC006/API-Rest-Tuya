@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service;
 public class StoreService {
     @Autowired
     IStoreRepository repository;
+
 }
