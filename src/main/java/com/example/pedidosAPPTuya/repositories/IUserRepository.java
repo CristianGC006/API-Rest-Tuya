@@ -1,6 +1,6 @@
 package com.example.pedidosAPPTuya.repositories;
 
-import org.apache.catalina.User;
+import com.example.pedidosAPPTuya.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

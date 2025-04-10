@@ -23,10 +23,9 @@ public class Item {
     private Store store;
 
     @ManyToOne
-    @JoinColumn(name="fk_item", referencedColumnName = "item_id")
+    @JoinColumn(name = "fk_details", referencedColumnName = "details_id")
     @JsonBackReference
     private Details details;
-
 
     public Item() {
     }

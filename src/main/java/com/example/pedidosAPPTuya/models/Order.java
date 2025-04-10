@@ -2,12 +2,9 @@ package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.StatusOrder;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import jakarta.websocket.ClientEndpoint;
 
 import java.time.LocalDate;
-import java.util.EnumMap;
 @Entity
 @Table(name = "orders_table")
 public class Order {
@@ -28,7 +25,7 @@ public class Order {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "fk_order", referencedColumnName = "order_id")
+    @JoinColumn(name = "fk_payment", referencedColumnName = "payment_id")
     @JsonBackReference
     private Payment payment;
 
