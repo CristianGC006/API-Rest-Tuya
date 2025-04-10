@@ -28,7 +28,7 @@ public class UserService{
     //Buscar todos los registros
     public List<User> searchUser() throws Exception{
        try {
-            return this.repository.findAll(User);
+            return this.repository.findAll();
        }catch (Exception error){
            throw new Exception(error.getMessage());
        }
