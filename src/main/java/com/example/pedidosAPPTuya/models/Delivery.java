@@ -1,7 +1,6 @@
 package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.DeliveryEnum;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -19,7 +18,7 @@ public class Delivery {
 
     @ManyToOne
     @JoinColumn(name = "fk_dealer", referencedColumnName = "dealer_id")
-    @JsonBackReference
+    //@JsonBackReference(value = "dealer")
     private Dealer dealer;
 
     public Delivery() {
