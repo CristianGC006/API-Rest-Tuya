@@ -24,7 +24,7 @@ public class StoreService {
         }
     }
     //fin All
-    public List<Store> searchUser() throws Exception{
+    public List<Store> searchedStore() throws Exception{
         try {
             return this.repository.findAll();
         }catch (Exception error){

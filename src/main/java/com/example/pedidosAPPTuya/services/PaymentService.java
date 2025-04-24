@@ -1,7 +1,6 @@
 package com.example.pedidosAPPTuya.services;
 
 import com.example.pedidosAPPTuya.models.Payment;
-import com.example.pedidosAPPTuya.models.User;
 import com.example.pedidosAPPTuya.repositories.IPaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,7 +31,7 @@ public class PaymentService {
         }
     }
     //Find by id
-    public Payment findById(Integer id, Payment paymentData)throws Exception{
+    public Payment findById(Integer id)throws Exception{
         try{
             Optional<Payment> paymentSearched=this.repository.findById(id);
             if (paymentSearched.isPresent()){
@@ -60,7 +59,7 @@ public class PaymentService {
         }
     }
     //Delete
-    public boolean deleteUser(Integer id)throws Exception{
+    public boolean delete(Integer id)throws Exception{
         try {
             Optional<Payment> paymentSearched=this.repository.findById(id);
             if (paymentSearched.isPresent()){
