@@ -16,7 +16,7 @@ public class UserService{
 
     //Listar los metodos que activaran las consultas de la BD
 
-    //Guardar
+    //Save
     public User createUser(User userData)throws Exception{
         try{
             //Validar los datos de entrada
@@ -25,7 +25,7 @@ public class UserService{
             throw new Exception(error.getMessage());
         }
     }
-    //Buscar todos los registros
+    //Find all
     public List<User> searchUser() throws Exception{
        try {
             return this.repository.findAll();
@@ -33,7 +33,7 @@ public class UserService{
            throw new Exception(error.getMessage());
        }
     }
-    //Buscar por id
+    //Find by id
     public User searchUserById(Integer id)throws Exception{
         try{
            Optional<User> userSearched=this.repository.findById(id);
@@ -48,7 +48,7 @@ public class UserService{
 
     }
 
-    //Metodo para modificar por id
+    //Update by id
     public User modifyUser(Integer id,User UserData) throws Exception{
         try{
             Optional<User> userSearched=this.repository.findById(id);
@@ -62,7 +62,7 @@ public class UserService{
             throw new Exception(error.getMessage());
         }
     }
-    //Eliminar por id
+    //Delete
     public boolean deleteUser(Integer id)throws Exception{
         try {
             Optional<User> userSearched=this.repository.findById(id);

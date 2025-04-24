@@ -2,6 +2,7 @@ package com.example.pedidosAPPTuya.services;
 
 import com.example.pedidosAPPTuya.models.Store;
 import com.example.pedidosAPPTuya.repositories.IStoreRepository;
+import jdk.jshell.spi.ExecutionControlProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ public class StoreService {
     @Autowired
     IStoreRepository repository;
 
+    //Save
     public Store createStore(Store storeData)throws Exception{
         try{
             //Validar los datos de entrada
@@ -21,7 +23,7 @@ public class StoreService {
             throw new Exception(error.getMessage());
         }
     }
-    //Buscar todos los registros
+    //fin All
     public List<Store> searchUser() throws Exception{
         try {
             return this.repository.findAll();
@@ -29,7 +31,7 @@ public class StoreService {
             throw new Exception(error.getMessage());
         }
     }
-    //Buscar por id
+    //find by id
     public Store searchStoreById(Integer id)throws Exception{
         try{
             Optional<Store> storeSearched=this.repository.findById(id);
@@ -44,6 +46,36 @@ public class StoreService {
 
     }
 
-    //Metodo para modificar por id
+    //Update by Id
+    public Store modifyStore(Integer id,Store storeData) throws Exception{
+        try{
+            Optional<Store> storeSearched=this.repository.findById(id);
+            if (storeSearched.isPresent()){
+                storeSearched.get().setStoreName(storeData.getStoreName());
+                storeSearched.get().setStoreAddres(storeData.getStoreAddres());
+                storeSearched.get().setStorePhoneNumber(storeData.getStorePhoneNumber());
+            }else{
+                throw new Exception("Tienda no encontrado");
+            }
+            return this.repository.save(storeSearched.get());
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
+
+    //Delete by id
+    public boolean delete(Integer id)throws Exception{
+        try{
+          Optional<Store> storeSearched=this.repository.findById(id);
+            if (storeSearched.isPresent()){
+                this.repository.deleteById(id);
+                return true;
+            }else{
+                throw new Exception("Tienda no encontrada");
+            }
+        }catch (Exception error){
+            throw new Exception(error.getMessage());
+        }
+    }
 
 }
