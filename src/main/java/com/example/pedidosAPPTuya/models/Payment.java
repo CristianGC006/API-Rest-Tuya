@@ -2,9 +2,7 @@ package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnum;
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnumStatus;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -24,7 +22,7 @@ public class Payment {
     private LocalDate paymenDate;
 
     @OneToMany(mappedBy = "payment")
-    @JsonManagedReference
+    //@JsonManagedReference
     private List<Order> orders;
 
     public Payment() {

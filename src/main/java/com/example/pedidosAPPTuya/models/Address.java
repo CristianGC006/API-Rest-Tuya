@@ -1,6 +1,5 @@
 package com.example.pedidosAPPTuya.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -26,7 +25,7 @@ public class Address {
 
     @ManyToOne
     @JoinColumn(name="fk_user", referencedColumnName = "id_user")
-    @JsonBackReference
+    //@JsonBackReference
     private User user;
 
 
