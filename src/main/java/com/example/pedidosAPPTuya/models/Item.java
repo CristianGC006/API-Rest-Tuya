@@ -1,5 +1,6 @@
 package com.example.pedidosAPPTuya.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,12 +19,12 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "fk_store", referencedColumnName = "store_id")
-   // @JsonBackReference
+    @JsonBackReference(value = "store")
     private Store store;
 
     @ManyToOne
     @JoinColumn(name = "fk_details", referencedColumnName = "details_id")
-   // @JsonBackReference
+    @JsonBackReference(value = "details")
     private Details details;
 
     public Item() {

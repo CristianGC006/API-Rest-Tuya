@@ -1,5 +1,7 @@
 package com.example.pedidosAPPTuya.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -21,11 +23,11 @@ public class Store {
     private String storeCategory;
 
     @OneToMany(mappedBy = "store")
-    // @JsonBackReference
+    @JsonBackReference(value = "store")
     private List<Order> orders;
 
     @OneToMany(mappedBy = "store")
-    //@JsonManagedReference
+    @JsonManagedReference(value = "store")
     private List<Item> items;
 
     public Store() {

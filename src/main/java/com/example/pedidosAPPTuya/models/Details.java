@@ -1,5 +1,6 @@
 package com.example.pedidosAPPTuya.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -17,11 +18,11 @@ public class Details {
     private Double subTotalItem;
 
     @OneToMany(mappedBy = "details")
-   // @JsonManagedReference
+    @JsonManagedReference(value = "details")
     private List<Order> orders;
 
     @OneToMany(mappedBy = "details")
-    //@JsonManagedReference
+    @JsonManagedReference(value = "details")
     private List<Item> items;
     public Details() {
     }

@@ -2,6 +2,7 @@ package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnum;
 import com.example.pedidosAPPTuya.Helpers.Enums.PaymentEnumStatus;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -22,7 +23,7 @@ public class Payment {
     private LocalDate paymenDate;
 
     @OneToMany(mappedBy = "payment")
-    //@JsonManagedReference
+    @JsonManagedReference(value = "payment")
     private List<Order> orders;
 
     public Payment() {

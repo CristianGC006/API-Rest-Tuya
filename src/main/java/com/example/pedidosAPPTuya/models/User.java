@@ -1,6 +1,7 @@
 package com.example.pedidosAPPTuya.models;
 
 import com.example.pedidosAPPTuya.Helpers.Enums.UserEnum;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -24,11 +25,11 @@ public class  User {
     private UserEnum userType;
 
     @OneToMany(mappedBy = "user")
-   // @JsonManagedReference
+    @JsonManagedReference(value = "user")
     private List<Address> addresses;
 
     @OneToMany(mappedBy ="user")
-   // @JsonManagedReference
+    @JsonManagedReference(value = "user")
     private List<Order> orders;
 
 
